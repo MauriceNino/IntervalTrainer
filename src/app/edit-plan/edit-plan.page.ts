@@ -40,7 +40,7 @@ export class EditPlanPage implements OnInit {
 
   public moveUp(iteration: Iteration): void {
     const index: number = this.selPlan.iterations.indexOf(iteration);
-    if (index != 0) {
+    if (index !== 0) {
       this.selPlan.iterations[index] = this.selPlan.iterations[index - 1];
       this.selPlan.iterations[index - 1] = iteration;
     }

@@ -13,6 +13,8 @@ export class PushProgressProvider {
     this.localNotifications.get(1).then((notification: ILocalNotification) => {
       notification.text = this.counter + 'x';
       notification.progressBar = { value: this.counter };
+      notification.sound = null;
+      notification.vibrate = false;
       this.localNotifications.update(notification);
     }).catch(error => console.log(error));
   }
@@ -23,6 +25,8 @@ export class PushProgressProvider {
       title: 'Title',
       text: this.counter + 'x',
       progressBar: { value: this.counter },
+      sound: null,
+      vibrate: false,
       sticky: true
     });
   }

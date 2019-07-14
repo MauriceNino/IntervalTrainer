@@ -15,7 +15,7 @@ export class PlansPage implements OnInit {
 
   constructor(public navCtrl: NavController, private provider: HiitProvider, private actionSheet: ActionSheet,
               private modalController: ModalController) {
-    this.addTestingStuff()
+    // this.addTestingStuff();
   }
 
   ionViewWillEnter() {
