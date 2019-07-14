@@ -1,0 +1,35 @@
+#counter{
+    width: 100%;
+    text-align:center;
+    padding-top: 20%; 
+    padding-bottom: 20%; 
+
+    #counter-text{
+        font-weight: bold;
+        font-size: 10vh;
+    }
+    #counter-actrythm{
+        font-size: 3vh;
+    }
+    #counter-next{
+        font-size: 3vh;
+    }
+}
+#buttons{
+    width: 100%;
+    text-align:center;
+
+    .redBg{
+        background-color: red;
+    }
+
+    .yellowFont{
+        color: #e2c93d;
+    }
+}
+#planList{
+    padding-top: 15%;
+    .selected{
+        
+    }
+}

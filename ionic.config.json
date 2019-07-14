@@ -1,5 +1,7 @@
 {
   "name": "IntervalTrainer",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

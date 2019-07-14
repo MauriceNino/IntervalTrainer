@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      My Plans
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <ion-button expand="full" fill="clear" (click)="addPlan()">
+      <ion-icon slot="start" name="add"></ion-icon>
+      Create a new Plan
+    </ion-button>
+    <ion-button expand="full" fill="clear" ion-item *ngFor="let plan of plansArr" (tap)="editPlan(plan)" (press)="openAS(plan)">
+      {{ plan.planName }}
+    </ion-button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Start new Interval-Training</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div id="counter">
+    <div id="counter-actrythm">
+      {{ currentRythmText }}
+    </div>
+    <div id="counter-text">
+      {{ currentCounterText }}
+    </div>
+    <div id="counter-next">
+      {{ nextRythmText }}
+    </div>
+  </div>
+  <div id="buttons">
+    <ion-button fill="clear" size="large" (click)="playPauseClick()" [disabled]="!planValid||planLocked" [class.yellowFont]="planPlaying">
+      <ion-icon slot="start" [name]="planPlaying ? 'pause' :'play'"></ion-icon>
+      {{ planPlaying ? 'PAUSE' : 'START' }}
+    </ion-button>
+    <ion-button (click)="lockClick()" [disabled]="!planValid" [class.redBg]="planLocked">
+      <ion-icon slot="icon-only" [name]="planLocked ? 'lock' : 'unlock'"></ion-icon>
+    </ion-button>
+  </div>
+  <ion-list id="planList">
+    <ion-button expand="full" fill="clear" *ngFor="let plan of plansArr; let i=index" (click)="planSelected(plan, i)" [style.color]="i === currentSelectedId?'':'grey'" [disabled]="planLocked">
+      {{ plan.planName }}
+    </ion-button>  
+  </ion-list>
+</ion-content>

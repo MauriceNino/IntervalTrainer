@@ -1,0 +1,72 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+      <ion-buttons>
+          <ion-button (click)="modalCtrl.dismiss()" class="cst-back-button">
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+          <ion-title>
+            Edit Plan
+          </ion-title>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Plan Name</ion-label>
+    <ion-input type="text" [(ngModel)]="selPlan.planName"></ion-input>
+  </ion-item>
+    
+  <ion-button expand="full" (click)="savePlan()" style="margin-top: 10%; margin-bottom: 10%;">
+    <ion-icon slot="start" name="checkmark"></ion-icon>
+    Save
+  </ion-button>
+
+  <ion-card *ngFor="let iteration of selPlan.iterations; let i=index">
+    <ion-card-header>
+      Iteration {{ i + 1 }}
+    </ion-card-header>
+
+    <ion-card-content class="iteration-inputs">
+      <ion-item>
+        <ion-label>Active (s)</ion-label>
+        <ion-input type="number" [(ngModel)]="iteration.active"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pause (s)</ion-label>
+        <ion-input type="number" [(ngModel)]="iteration.pause"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Repeats</ion-label>
+        <ion-input type="number" [(ngModel)]="iteration.repeats"></ion-input>
+      </ion-item>
+      
+      <ion-button fill="clear" size="large" (click)="moveUp(iteration)" style="width: 30%; float: left;">
+        <ion-icon slot="icon-only" name="ios-arrow-up"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" size="large" (click)="moveDown(iteration)" style="width: 30%; float: left;">
+        <ion-icon slot="icon-only" name="ios-arrow-down"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="delete(iteration)" style="width: 30%; padding-top: 20px; float: right;">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+      <!--
+      <ion-item>
+        <ion-label>Pause danach</ion-label>
+        <ion-input type="number" [(ngModel)]="iteration.pauseAfter"></ion-input>
+      </ion-item>-->
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-button expand="full" (click)="addIteration()">
+    <ion-icon slot="start" name="add"></ion-icon>
+    Add a new Iteration
+  </ion-button>
+
+  <ion-button expand="full" *ngIf="selPlan.iterations.length>1" ion-button block item-end icon-start (click)="savePlan()" style="margin-top: 10%; margin-bottom: 10%;">
+    <ion-icon slot="start" name="checkmark"></ion-icon>
+    Save
+  </ion-button>
+</ion-content>
